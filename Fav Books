@@ -1,0 +1,6 @@
+CREATE TABLE favbooks (id INTEGER PRIMARY KEY, name TEXT, rating INTEGER);
+
+insert INTO favbooks VALUES (1, 'vorkosigan', 1);
+insert INTO favbooks Values (2, "star wars", 2);
+insert INTO favbooks VALUES (3, "lotr",3);
+SELECT * FROM favbooks;
