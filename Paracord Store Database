@@ -1,0 +1,21 @@
+CREATE TABLE paracord_store (id INTEGER PRIMARY KEY, name TEXT, quanity INTEGER, color INTEGER, cost INTEGER);
+
+INSERT INTO paracord_store VALUES(1, "clips", 15, "multi", 2);
+INSERT INTO paracord_store VALUES(2, "keychain", 20, "multi", 7);
+INSERT INTO paracord_store VALUES(3, "belt", 10, "brown", 50);
+INSERT INTO paracord_store VALUES(4, "belt", 7, "black", 50);
+INSERT INTO paracord_store VALUES(5, "bottle_clip", 18, "multi", 8);
+INSERT INTO paracord_store VALUES(6, "bracelet", 6, "two_tone", 6);
+INSERT INTO paracord_store VALUES(7, "bracelet", 6, "single", 6);
+INSERT INTO paracord_store VALUES(8, "paracord_gernade", 15, "single", 20);
+INSERT INTO paracord_store VALUES(9, "paracord_gernade", 5, "two_tone", 20);
+INSERT INTO paracord_store VALUES(10, "collar_spike", 4, "multi_spike", 40);
+INSERT INTO paracord_store VALUES(11, "collar", 4, "multi_plain", 35);
+INSERT INTO paracord_store VALUES(12, "leash", 5, "two_tone", 50);
+INSERT INTO paracord_store VALUES(13, "whip", 4, "three_tone", 60);
+INSERT INTO paracord_store VALUES(14, "belt", 5, "swapable", 50);
+INSERT INTO paracord_store VALUES(15, "bulk_cord", 87, "multi", 12);
+
+SELECT id, name, cost FROM paracord_store GROUP BY cost;
+
+SELECT name, SUM(quanity) FROM paracord_store GROUP BY NAME
