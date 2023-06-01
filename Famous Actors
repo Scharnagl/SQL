@@ -1,0 +1,49 @@
+/* All info relating to the actors was gathered by Dan S. via the IMDB website and Google serches  */
+CREATE TABLE famous_actors(
+ id INTEGER PRIMARY KEY AUTOINCREMENT,
+    fullname TEXT,
+    age INTEGER);
+    
+INSERT into famous_actors (fullname, age) VALUES ("Michelle Yeoh", "60");
+INSERT into famous_actors (fullname, age) VALUES ("Helen Mirren", "77");
+INSERT into famous_actors (fullname, age) VALUES ("Liv Taylor", "45");
+INSERT into famous_actors (fullname, age) VALUES ("Tom Hardy", "45");
+INSERT into famous_actors (fullname, age) VALUES ("Pedro Pascal", "48");
+INSERT into famous_actors (fullname, age) VALUES ("Hugh Jackman", "54");
+
+CREATE TABLE personal_details(
+id INTEGER PRIMARY KEY,
+    person_id INTEGER,
+    married TEXT,
+    birthplace TEXT);
+
+INSERT into personal_details (person_id, married, birthplace) VALUES (1, "no", "MAL");
+INSERT into personal_details (person_id, married, birthplace) VALUES (2, "yes", "GBR");
+INSERT into personal_details (person_id, married, birthplace) VALUES (3, "no", "USA");
+INSERT into personal_details (person_id, married, birthplace) VALUES (4, "yes", "GBR");
+INSERT into personal_details (person_id, married, birthplace) VALUES (5, "no", "CHL");
+INSERT into personal_details (person_id, married, birthplace) VALUES (6, "yes", "AUS");
+
+CREATE TABLE movie_yrs(
+    id INTEGER PRIMARY KEY,
+    first_released_yr TEXT,
+    latest_released_yr TEXT);
+    
+INSERT into movie_yrs (first_released_yr, latest_released_yr) VALUES ("1984", "2022");
+INSERT into movie_yrs (first_released_yr, latest_released_yr) VALUES ("1967", " 2023");
+INSERT into movie_yrs (first_released_yr, latest_released_yr) VALUES ("1994", "2019");
+INSERT into movie_yrs (first_released_yr, latest_released_yr) VALUES ("2001", "2021");
+INSERT into movie_yrs (first_released_yr, latest_released_yr) VALUES ("1996", "2022");
+INSERT into movie_yrs (first_released_yr, latest_released_yr) VALUES ("1994", "2022");
+
+
+SELECT famous_actors.id, famous_actors.fullname, famous_actors.age, personal_details.married, personal_details.birthplace FROM personal_details
+    JOIN famous_actors
+    ON personal_details.person_id = famous_actors.id;
+
+
+SELECT famous_actors.fullname, movie_yrs.first_released_yr, movie_yrs.latest_released_yr FROM movie_yrs
+    JOIN famous_actors
+    ON famous_actors.id = movie_yrs.id
+    ORDER BY first_released_yr;
+    
