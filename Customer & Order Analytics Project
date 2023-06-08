@@ -51,3 +51,10 @@ SELECT count(distinct customers.acctnum), AVG(Febsales.Quantity*price) FROM BIT_
     WHERE FebSales.Quantity>2
     AND length(orderid) = 6 
     AND orderid <> 'Order ID';
+
+--List all the products sold in Los Angeles in February, and include how many of each were sold.
+
+SELECT Product, sum(Quantity)
+FROM BIT_DB.FebSales
+WHERE location LIKE '%Los Angeles%'
+GROUP BY product;
