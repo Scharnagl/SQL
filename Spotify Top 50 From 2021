@@ -23,3 +23,29 @@ tempo decimal(6,3) NOT NULL,
 duration_ms integer NOT NULL,
 time_signature integer NOT NULL );
 
+--Sample Questions:
+
+--What is the average danceability by artist and track? 
+SELECT AVG(danceability), artist_name as artist, track_name as song FROM BIT_DB.Spotifydata
+    GROUP BY artist;
+    
+
+--Who are the top 10 artists based on popularity? 
+SELECT artist_name as artist, track_name as song, popularity FROM BIT_DB.Spotifydata
+    WHERE popularity > '90'
+    ORDER BY popularity DESC
+    LIMIT 10;
+
+
+--What song has the most BPM?
+SELECT artist_name as artist, track_name as song, max(tempo) as BPM FROM BIT_DB.Spotifydata
+    ORDER BY BPM DESC
+    LIMIT 1;
+
+
+--What 5 songs are the longest?
+SELECT track_name as song, artist_name as artist, duration_ms as length FROM BIT_DB.Spotifydata
+    ORDER BY length DESC
+    LIMIT 5;
+
+
