@@ -1,0 +1,21 @@
+SQL Project: Superstore Analysis
+
+//Write your own SQL query that uses a SELECT statement to order the items by price.
+SELECT item_name, price FROM superstore
+ORDER BY price desc;
+
+//Write your own SQL query that will show a statistic about the item prices, like a sum, average, minimum, maximum, or count.
+SELECT MIN(price) FROM superstore;
+
+//Write your own SQL query that will show a statistic about the price for items in the category of "Kitchen Supplies"
+SELECT AVG(price), MIN(price), MAX(price) FROM superstore
+WHERE category="Kitchen Supplies";
+
+//Come up with your own question about the data and try to answer it using SQL. 
+SELECT item_name, category, price FROM superstore
+WHERE price >30
+ORDER BY price desc;
+
+SELECT item_name, category, stock_quantity FROM superstore
+WHERE category="Electronics"
+ORDER BY stock_quantity asc;
